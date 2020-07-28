@@ -1,10 +1,20 @@
 {% extends 'menu_bar.html' %}<!--위에 상단바-->
 {% block contents %}
 {% load static %}
-
+<link rel="stylesheet" href="{% static 'css/home.css'%}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body>
 {% for post in posts.all %}
-    <h1>{{post.username}}, {{ post.title }}</h1>
+<div class="main_wrap">
+<div class="diary_wrap">
+	<div class="content_input">
+    <h6 align ="right">글쓴이 : {{ user.username}}</h6>
+    <span class="label">일기 제목:{{ post.title }}</span>
+			<textarea placeholder="일기 내용" onkeyup="autoTextarea(this,2000)" id="text" name="text" rows="4" style="word-wrap: break-word; resize: none; height: 100px; ">{{ post.content }}</textarea>  
+	</div>
+</div>
+</div>
+    <!--<h1>{{post.username}}, {{ post.title }},{{ post.content }},{{ post.weather }},{{ post.emotion }}</h1>-->
 {% endfor %}
 	
 </body>

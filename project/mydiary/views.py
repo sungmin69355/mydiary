@@ -21,7 +21,7 @@ def create(request):
     posts = Post()
     posts.username = request.user
     posts.title = request.POST['title']
-    posts.body = request.POST['body']
+    posts.content = request.POST['text']
     posts.weather = request.POST['radio_weather']
     posts.emotion = request.POST['radio_emotion']
     posts.save()
