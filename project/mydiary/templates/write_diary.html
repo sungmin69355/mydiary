@@ -1,0 +1,105 @@
+{% extends 'menu_bar.html' %}<!--위에 상단바-->
+{% block contents %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css'%}">
+<script type="text/javascript">
+	function autoTextarea(obj,limit) {
+		obj.style.height = "100px";
+		obj.style.height = (70+obj.scrollHeight)+"px";
+		console.log(obj.value.length);
+	    if(obj.value.length > limit) {
+	    	alert("일기는 최대 2000자 까지만 작성가능해요 :'(");
+	    	obj.value = obj.value.substring(0,limit);  
+	    	obj.focus();
+	    }
+	}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body>
+			<main>
+				<div class="main_wrap">
+					<form action="{% url 'create' %}" method="POST">{% csrf_token %}
+					<div class="diary_wrap">
+					<h6 align ="right">글쓴이 : {{ user.username}}</h6>
+						<div class="title_input clearfix">
+								<label for="inp" class="inp">
+								  <input type="title" name="title" id="inp" placeholder="">
+								  <span class="label">일기 제목</span>
+								  <span class="border"></span>
+								</label>
+							
+							<span class="category_wrap"><!--
+								<form action="{% url 'create' %}" method="POST">
+									<select name="category">
+								    <option value="">교환 일기장 선택</option>
+								    <option value="그룹1">그룹1</option>
+								    <option value="그룹2">그룹2</option>
+								    <option value="그룹3">그룹3</option>
+									</select>
+								</form>-->
+							</span>
+						</div>
+						
+						<div class="date_input">
+							<span>2020년 </span>
+							<span>7월 </span>
+							<span>25일</span>
+						</div>
+						
+							<div class="emotion_input">
+								감정 : 
+								<span class="emotion_happy">
+									<input type="radio" id="happy" name="radio_emotion" value="happy" checked="checked"><label for="happy">&nbsp;</label>
+								</span>
+								<span class="emotion_love">
+									<input type="radio" id="love" name="radio_emotion" value="love"><label for="love">&nbsp;</label>
+								</span>
+								<span class="emotion_angry">
+									<input type="radio" id="angry" name="radio_emotion" value="angry"><label for="angry">&nbsp;</label>
+								</span>
+								<span class="emotion_crying">
+									<input type="radio" id="crying" name="radio_emotion" value="crying"><label for="crying">&nbsp;</label>
+								</span>
+								<span class="emotion_serious">
+									<input type="radio" id="serious" name="radio_emotion" value="serious"><label for="serious">&nbsp;</label>
+								</span>
+								<span class="emotion_sleepy">
+									<input type="radio" id="sleepy" name="radio_emotion" value="sleepy"><label for="sleepy">&nbsp;</label>
+								</span>
+							</div>
+						
+						
+							<div class="weather_input">
+								날씨 : 
+								<span class="weather_sunny">
+									<input type="radio" id="sunny" name="radio_weather" value="sunny" checked="checked"><label for="sunny">&nbsp;</label>
+								</span>
+								<span class="weather_umbrella">
+									<input type="radio" id="umbrella" name="radio_weather" value="umbrella"><label for="umbrella">&nbsp;</label>
+								</span>
+								<span class="weather_cloud">
+									<input type="radio" id="cloud" name="radio_weather" value="cloud"><label for="cloud">&nbsp;</label>
+								</span>
+								<span class="weather_snow">
+									<input type="radio" id="snow" name="radio_weather" value="snow"><label for="snow">&nbsp;</label>
+								</span>
+							</div>
+						
+						<div class="write_diary_image_input">
+							<!-- <input type="submit" value="등록" class="upload"> -->
+							<input type="file" name="image" value="파일 업로드" class="upload">
+							
+						</div>
+						<div class="content_input">
+								<textarea placeholder="일기 내용" onkeyup="autoTextarea(this,2000)" id="text" name="body" rows="4" style="word-wrap: break-word; resize: none; height: 100px; "></textarea>  
+								<br>
+						</div>
+						<div class="diary_submit_button_wrap">
+							<input type="submit" class="diary_submit_button" value="일기 저장">
+						</div>
+					</div>
+					</form>
+				</div>
+			</main>
+{% endblock %}
+</body>
