@@ -8,13 +8,55 @@
 <div class="main_wrap">
 <div class="diary_wrap">
 	<div class="content_input">
-    <h6 align ="right">글쓴이 : {{ user.username}}</h6>
+    <h5 align ="right">글쓴이 : {{ post.username}}</h5> 
     <span class="label">일기 제목:{{ post.title }}</span>
+    <br>{{post.pub_date}}
+    </div>
+    날씨 :
+    {% if post.weather == "sunny" %}
+		<span class="weather_sunny">
+		<input type="radio" id="sunny" name="radio_weather" value="sunny"><label for="sunny">&nbsp;</label>
+		</span>        
+    {% elif post.weather == "umbrella" %}
+        <span class="weather_umbrella">
+		<input type="radio" id="umbrella" name="radio_weather" value="umbrella"><label for="umbrella">&nbsp;</label>
+		</span>
+    {% elif post.weather == "cloud" %}
+        <span class="weather_cloud">
+		<input type="radio" id="cloud" name="radio_weather" value="cloud"><label for="cloud">&nbsp;</label>
+		</span>
+    {% elif post.weather == "snow" %}
+		<span class="weather_snow">
+		<input type="radio" id="snow" name="radio_weather" value="snow"><label for="snow">&nbsp;</label>
+		</span>
+    {% endif %}  
+    기분:
+    {% if post.emotion == "happy" %}
+    	<span class="emotion_happy">
+		<input type="radio" id="happy" name="radio_emotion" value="happy" checked="checked"><label for="happy">&nbsp;</label>
+		</span>
+    {% elif post.emotion == "love"%}
+        <span class="emotion_love">
+		<input type="radio" id="love" name="radio_emotion" value="love"><label for="love">&nbsp;</label>
+		</span>
+    {% elif post.emotion == "angry"%}
+    	<span class="emotion_angry">
+		<input type="radio" id="angry" name="radio_emotion" value="angry"><label for="angry">&nbsp;</label>
+		</span>
+    {% elif post.emotion == "crying"%}
+        <span class="emotion_crying">
+		<input type="radio" id="crying" name="radio_emotion" value="crying"><label for="crying">&nbsp;</label>
+		</span>
+    {% elif post.emotion == "serious"%}
+    {% elif post.emotion == "sleepy"%}
+    	<span class="emotion_sleepy">
+		<input type="radio" id="sleepy" name="radio_emotion" value="sleepy"><label for="sleepy">&nbsp;</label>
+		</span>
+    {% endif %}
+     <img src ="{{posts.poto.url}}" width="500" height="400">
 			<textarea placeholder="일기 내용" onkeyup="autoTextarea(this,2000)" id="text" name="text" rows="4" style="word-wrap: break-word; resize: none; height: 100px; ">{{ post.content }}</textarea>  
-	</div>
 </div>
 </div>
-    <!--<h1>{{post.username}}, {{ post.title }},{{ post.content }},{{ post.weather }},{{ post.emotion }}</h1>-->
 {% endfor %}
 	
 </body>

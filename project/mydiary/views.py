@@ -21,6 +21,7 @@ def create(request):
     posts = Post()
     posts.username = request.user
     posts.title = request.POST['title']
+    #post.photo = request.FILES['image']
     posts.content = request.POST['text']
     posts.weather = request.POST['radio_weather']
     posts.emotion = request.POST['radio_emotion']
