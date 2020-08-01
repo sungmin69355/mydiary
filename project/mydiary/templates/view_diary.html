@@ -53,8 +53,7 @@
 		<input type="radio" id="sleepy" name="radio_emotion" value="sleepy"><label for="sleepy">&nbsp;</label>
 		</span>
     {% endif %}
-     <img src ="{{posts.poto.url}}" width="500" height="400">
-			<textarea placeholder="일기 내용" onkeyup="autoTextarea(this,2000)" id="text" name="text" rows="4" style="word-wrap: break-word; resize: none; height: 100px; ">{{ post.content }}</textarea>  
+		<textarea placeholder="일기 내용" onkeyup="autoTextarea(this,2000)" id="text" name="text" rows="4" style="word-wrap: break-word; resize: none; height: 150px; ">{{ post.content }}</textarea>  
 </div>
 </div>
 {% endfor %}

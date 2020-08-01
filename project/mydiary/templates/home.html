@@ -2,7 +2,7 @@
 {% block contents %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/home.css'%}">
-<body>
+
 <script language="javascript">
     var date = new Date();
     var today = new Date();
@@ -117,7 +117,6 @@
                     </script>
                 </div>
         </main>
-<h1><a href="{% url 'view_diary' %}">글보기</a></h1>
 {% else %}
 {% endif %}
 {% endblock %}

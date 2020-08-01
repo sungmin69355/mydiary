@@ -1,4 +1,7 @@
 /*---홈화면 --*/
+.home{
+  background: url('../img/bg.gif')no-repeat; 
+}
 .calendar{
     border: double black;
     border-radius: 5px;
