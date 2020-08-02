@@ -28,3 +28,7 @@ def create(request):
     posts.save()
     posts = Post.objects.all().order_by('-id')
     return render(request, 'view_diary.html',{'posts':posts})
+
+def delete(request):
+    post = Post.objects.get(id=post_id)
+    return redirect('/')
