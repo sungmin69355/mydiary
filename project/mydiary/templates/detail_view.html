@@ -7,10 +7,18 @@
 <!--- 비로그인 차단-->
 {% if user.is_active %}
 <!-- 글 post로 가져와서 detail로 넘겨주는 곳-->
-{{post_detail.username}}<br>
-{{post_detail.title }}<br>
-{{post_detail.pub_date}}<br>
-{{post_detail.content }}<br>
+<div class="main_wrap">
+<div class="diary_wrap">
+	<div class="content_input">
+    <h5 align ="right">글쓴이 : {{post_detail.username}}</h5> 
+    <span class="label">일기 제목:{{post_detail.title }}</span>
+    <br>{{post_detail.pub_date}}
+    <textarea placeholder="일기 내용" onkeyup="autoTextarea(this,2000)" id="text" name="text" rows="4" style="word-wrap: break-word; resize: none; height: 500px; ">{{post_detail.content }}</textarea>  
+</div><br>
+<a href="{% url 'view_diary' %}"><input class="btn btn-secondary" type="submit" value="돌아가기"></a>
+</div>
+
+<br><br>
 <!--로그인 안되었을떄 일기장 못보게 하기-->
 {% else %}
 	<br><br><div class="card text-white bg-dark mb-3" style="max-width: 40rem; float: none; margin: 0 auto;">
