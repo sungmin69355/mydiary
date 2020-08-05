@@ -32,3 +32,9 @@ def create(request):
 def detail(request,posts_id):
     post_detail = get_object_or_404(Post, pk=posts_id)
     return render(request, 'detail_view.html', {'post_detail':post_detail})
+
+def delete(request, posts_id):
+    post = Post.objects.get(id=posts_id)
+    post.delete()
+    posts = Post.objects.all().order_by('-id')
+    return render(request, 'view_diary.html',{'posts':posts})
