@@ -1,0 +1,28 @@
+{% extends 'menu_bar.html' %}<!--위에 상단바-->
+{% block contents %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css'%}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body>
+<!--- 비로그인 차단-->
+{% if user.is_active %}
+<!-- 글 post로 가져와서 detail로 넘겨주는 곳-->
+{{post_detail.username}}<br>
+{{post_detail.title }}<br>
+{{post_detail.pub_date}}<br>
+{{post_detail.content }}<br>
+<!--로그인 안되었을떄 일기장 못보게 하기-->
+{% else %}
+	 <br><br><div class="card text-white bg-dark mb-3" style="max-width: 40rem; float: none; margin: 0 auto;">
+    <div class="form-group" align="center">
+    <br><h3 align="center">잘못된 접근입니다.<br> 로그인해주세요</h3>
+    <br>
+    <a href="{% url 'signup' %}"><input class="btn btn-dark" type="submit" value="회원가입"></a>
+    <a href="{% url 'login' %}"><input class="btn btn-dark" type="submit" value="로그인"></a>
+    <a href="{% url 'home' %}"><input class="btn btn-dark" type="submit" value="홈으로 돌아가기"></a>
+	</div>
+    </div>
+{% endif %}
+</body>
+
+{% endblock %}

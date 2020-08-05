@@ -56,7 +56,7 @@
     {% endif %}
 		<textarea placeholder="일기 내용" onkeyup="autoTextarea(this,2000)" id="text" name="text" rows="4" style="word-wrap: break-word; resize: none; height: 150px; ">{{ post.content }}</textarea>  
     <br><br>
-	<a class="btn btn-secondary" href="">일기삭제하기</a>
+	<p><a href="{%url 'detail' post.id %}">자세히보기</a></p>  
 </div>
 </div>
 {% endfor %}

@@ -29,6 +29,6 @@ def create(request):
     posts = Post.objects.all().order_by('-id')
     return render(request, 'view_diary.html',{'posts':posts})
 
-def delete(request):
-    post = Post.objects.get(id=post_id)
-    return redirect('/')
+def detail(request,posts_id):
+    post_detail = get_object_or_404(Post, pk=posts_id)
+    return render(request, 'detail_view.html', {'post_detail':post_detail})
