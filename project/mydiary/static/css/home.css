@@ -2,6 +2,9 @@
 .home{
   background: url('../img/bg.gif')no-repeat; 
 }
+.bgview{
+  background: url('../img/bg4.gif')no-repeat;
+}
 .calendar{
     border: double black;
     border-radius: 5px;
