@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth #내부 유저모델 사용
 
 def signup(request):
     if request.method  == 'POST':
