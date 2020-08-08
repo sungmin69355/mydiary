@@ -1,6 +1,7 @@
 {% extends 'menu_bar.html' %}
 {% block contents %}
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'project/mydiary/css/home.css'%}">
 <!--로그인 되어있는경우-->
     {% if user.is_active %}
     <br><br><div class="card text-white bg-dark mb-3" style="max-width: 40rem; float: none; margin: 0 auto;">
@@ -18,8 +19,8 @@
 {% endif %}
 <br><br><br>
 <body>
-<div class="loginimg" style="max-width: 30rem; float: none; margin: 0 auto;">
-    <br><br><br><br>
+<div class="bgview" style="max-width: 30rem; float: none; margin: 0 auto;">
+    <br><br><br><br><br>
     </div>
 <form method="POST" action="{%url 'login'%}" align="center">
 <div class="card text-white bg-dark mb-3" style="max-width: 25rem; float: none; margin: 0 auto;">
