@@ -1,9 +1,13 @@
+/*예외처리화면 이미지 */
+.bgview{
+  background: url('../img/bg4.gif')no-repeat;
+}
+.bgwrite{
+  background: url('../img/bg5.gif')no-repeat;
+}
 /*---홈화면 --*/
 .home{
   background: url('../img/bg.gif')no-repeat; 
-}
-.bgview{
-  background: url('../img/bg4.gif')no-repeat;
 }
 .calendar{
     border: double black;
