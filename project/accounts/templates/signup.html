@@ -1,15 +1,18 @@
 {% extends 'menu_bar.html' %}
-
 {% block contents %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/accounts.css'%}">
 <style type="text/css">
 label{
     align:center;
 }
-</style>
-<br><br><br>
+</style><br>
+    <div class="bgsignup" style="max-width: 30rem; float: none; margin: 0 auto;">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
 <form method="POST" action="{%url 'signup'%}">
     {%csrf_token%}
-    <div class="card text-white bg-dark mb-3" style="max-width: 35rem; float: none; margin: 0 auto;">
+    <div class="card text-white bg-dark mb-3" style="max-width: 30rem; float: none; margin: 0 auto;">
     <div class="form-group" align="center"><br>
     <h1>Create your account</h1>
     <br><label>ID:</label>
