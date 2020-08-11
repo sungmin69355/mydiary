@@ -21,10 +21,12 @@
     <!-- 에러발생시-->
 <p>ID나 PASSWORD가 일치하지 않습니다.</p>
 {% endif %}
-<br><br><br>
-<body>
+<body><br><br>
+    <div class="bglogin2" style="max-width: 30rem; float: none; margin: 0 auto;">
+    <br><br><br><br><br><br><br><br><br>
+    </div>
 <form method="POST" action="{%url 'login'%}" align="center">
-<div class="card text-white bg-dark mb-3" style="max-width: 25rem; float: none; margin: 0 auto;">
+<div class="card text-white bg-dark mb-3" style="max-width: 30rem; float: none; margin: 0 auto;">
   <div class="form-group" align="center">
         {%csrf_token%}
         <br><label>ID:</label>
