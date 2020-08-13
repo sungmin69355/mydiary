@@ -39,15 +39,16 @@ def delete(request, posts_id):
     posts = Post.objects.all().order_by('-id')
     return render(request, 'view_diary.html',{'posts':posts})
 
-def update(request, posts_id):
+def update(request, posts_id): #여기 수정중.....
     post = Post.objects.get(id=posts_id)
 
     if request.method == "POST":
         post.title = request.POST['title']
-        posts.content = request.POST['text']
-        posts.weather = request.POST['radio_weather']
-        posts.emotion = request.POST['radio_emotion']
-        posts.save()
-        return redirect('/mydiary/detail/' + str(post.id))
+        post.content = request.POST['text']
+        post.weather = request.POST['radio_weather']
+        post.emotion = request.POST['radio_emotion']
+        post.save()
+        return redirect('/mydiary/update/' + str(post.id))
+    
     else:
-        return render(request, 'view_diary.html')
+        return render(request, 'write_update_diary.html')

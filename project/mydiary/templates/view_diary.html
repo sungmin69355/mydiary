@@ -59,6 +59,7 @@
 		<p><a href="{%url 'detail' post.id %}"><input class="btn btn-secondary" type="submit" value="자세히보기"></a>
 	{% if user == post.username %}
 		<a href="{%url 'delete' post.id %}"><input class="btn btn-secondary" type="submit" value="글삭제"></a>
+    <!--여기 수정중...-->
     <a href="{%url 'update' post.id %}"><input class="btn btn-secondary" type="submit" value="일기수정"></a></p>
   {%endif%}
 </div>

@@ -19,7 +19,7 @@
 {% if user.is_active %}
 			<main>
 				<div class="main_wrap">
-					<form action="{% url 'create' %}" method="POST">{% csrf_token %}
+					<form action="{% url 'update' %}" method="POST">{% csrf_token %}
 					<div class="diary_wrap">
 					<h6 align ="right">글쓴이 : {{ user.username}}</h6>
 						<div class="title_input clearfix">
