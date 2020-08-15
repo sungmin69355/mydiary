@@ -39,7 +39,7 @@ def delete(request, posts_id):
     posts = Post.objects.all().order_by('-id')
     return render(request, 'view_diary.html',{'posts':posts})
 
-def update(request, posts_id): #여기 수정중.....
+def update(request, posts_id): #여기 수정중..... post값을 가져온뒤 수정해야함... 어떻게?..
     post = Post.objects.get(id=posts_id)
 
     if request.method == "POST":

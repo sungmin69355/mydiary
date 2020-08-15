@@ -18,9 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 import mydiary.views
 import accounts.views
+import mymap.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',mydiary.views.home,name='home'), #홈화면
     path('accounts/',include('accounts.urls')),
     path('mydiary/',include('mydiary.urls')),
+    path('mymap/',include('mymap.urls')),
 ]

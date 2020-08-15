@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'mydiary.apps.MydiaryConfig',
     'accounts.apps.AccountsConfig',
+    'mymap.apps.MymapConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
