@@ -6,6 +6,7 @@
 <body>
 {% if user.is_active %}
 {% for post in posts.all %}
+{% if user == post.username %}
 <div class="main_wrap">
 <div class="diary_wrap">
 	<div class="content_input">
@@ -57,7 +58,6 @@
 		<textarea placeholder="일기 내용" onkeyup="autoTextarea(this,2000)" id="text" name="text" rows="4" style="word-wrap: break-word; resize: none; height: 150px; ">{{ post.content }}</textarea>  
     <br><br>
 		<p><a href="{%url 'detail' post.id %}"><input class="btn btn-secondary" type="submit" value="자세히보기"></a>
-	{% if user == post.username %}
 		<a href="{%url 'delete' post.id %}"><input class="btn btn-secondary" type="submit" value="글삭제"></a>
     <!--여기 수정중...-->
     <a href="{%url 'update' post.id %}"><input class="btn btn-secondary" type="submit" value="일기수정"></a></p>

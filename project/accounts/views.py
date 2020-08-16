@@ -30,3 +30,10 @@ def logout_request(request):
     auth.logout(request)
     return redirect('/')
     return render(request, 'login.html')   
+
+def kakao_login(request):
+    app_rest_api_key = os.environ.get("KAKAO_REST_API_KEY")
+    redirect_uri = main_domain + "users/login/kakao/callback"
+    return redirect(
+        f"https://kauth.kakao.com/oauth/authorize?client_id={'45f14f583e184b0b0b976cf5ef4b3095'}&redirect_uri={'home'}&response_type=code"
+    )
