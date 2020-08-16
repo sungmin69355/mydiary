@@ -6,7 +6,9 @@
 </head>
 <body><br><br><br>
 	<div id="map" style="width:600px;height:600px; margin:0 auto;"></div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=983ab8868e396f3777026ccd3624c32c"></script>
+</body>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=983ab8868e396f3777026ccd3624c32c"></script>
 	<script>
 		var container = document.getElementById('map');
 		var options = {
@@ -64,6 +66,6 @@ function displayMarker(locPosition, message) {
     map.setCenter(locPosition);      
 }    
     </script>
-</body>
+
 </html>
 {% endblock %}

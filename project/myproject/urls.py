@@ -26,4 +26,5 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('mydiary/',include('mydiary.urls')),
     path('mymap/',include('mymap.urls')),
+    path(r'^accounts/', include('allauth.urls')),#여기수정해야할듯....
 ]

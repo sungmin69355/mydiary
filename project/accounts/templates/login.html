@@ -42,8 +42,13 @@
         <input class="btn btn-dark" type="submit" value="로그인">
         <input class="btn btn-dark" type="submit" value="비밀번호찾기">
         </div>
-    </form>
-        <a href="{% url 'signup' %}"><input class="btn btn-dark" type="submit" value="회원가입하기"></a><br>
+        <div>
+        <!--카카오로그인들어갈자리-->
+        {% load socialaccount %}<!--인식은 되는데 값을 못넘김 수정해야할듯-->
+        <a href="{% provider_login_url 'kakao' method='oauth2' %}"><img src="/static/img/kakao_login.png"></a>
+        </div>
+    </form><br>
+        <a href="{% url 'signup' %}"><input class="btn btn-dark" type="submit" value="회원가입하기"></a>
     </div>
 {% endif %}
 {% endblock %}

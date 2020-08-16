@@ -40,6 +40,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # ... include the providers you want to enable:
+    'allauth.socialaccount.providers.agave',
+    'allauth.socialaccount.providers.amazon',
+    'allauth.socialaccount.providers.angellist',
+    'allauth.socialaccount.providers.asana',
+    'allauth.socialaccount.providers.auth0',
+    'allauth.socialaccount.providers.authentiq',
+    'allauth.socialaccount.providers.baidu',
+    'allauth.socialaccount.providers.basecamp',
+    'allauth.socialaccount.providers.bitbucket',
+    'allauth.socialaccount.providers.bitbucket_oauth2',
+    'allauth.socialaccount.providers.bitly',
+    'allauth.socialaccount.providers.cern',
+    'allauth.socialaccount.providers.kakao',
+
+
 ]
 
 MIDDLEWARE = [
@@ -69,6 +90,13 @@ TEMPLATES = [
         },
     },
 ]
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
@@ -132,3 +160,9 @@ STATICFILES_FINDERS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'home' # 로그인 후 리디렉션할 페이지
+ACCOUNT_LOGOUT_REDIRECT_URL = "home"  # 로그아웃 후 리디렉션 할 페이지
+ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 버튼 클릭 시 자동 로그아웃
+
+SITE_ID = 1
