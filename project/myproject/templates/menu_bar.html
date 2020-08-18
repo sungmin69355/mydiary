@@ -7,7 +7,7 @@
 
 <body style="background: #bdc3c7; background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50); background: linear-gradient(to right, #bdc3c7, #2c3e50);">
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'home' %}">헤진이를 위한 일기</a>
+  <a class="navbar-brand" href="{% url 'home' %}">혜진이를 위한 일기</a>
       {% if user.is_active %}
       <!--로그인했을때-->
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded justify-content-end">
@@ -16,9 +16,13 @@
     <a class="btn btn-dark" href="{% url 'map' %}">지도보기</a>
     <a class="btn btn-dark" href="{% url 'write_diary' %}">글쓰기</a>
     <a class="btn btn-dark" href="{% url 'view_diary' %}">일기보기</a>
-    <a class="btn btn-dark" href="{% url 'signup' %}">회원가입</a>
-    <a class="btn btn-dark" href="{% url 'login' %}">로그인</a>
-    <a class="btn btn-dark" href="{% url 'logout' %}">로그아웃</a>
+    <li class="nav-item dropdown">
+    <a class="btn btn-dark dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">회원</a>
+    <div class="dropdown-menu">
+    <a class="dropdown-item" href="{% url 'signup' %}">회원가입</a>
+    <a class="dropdown-item" href="{% url 'login' %}">로그인</a>
+    <a class="dropdown-item" href="{% url 'logout' %}">로그아웃</a>
+    </div>
   </li>
   <li class="nav-item">
     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ user.username}}님 접속중</a>
