@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.auth0',
     'allauth.socialaccount.providers.kakao',
-
-
 ]
 
 MIDDLEWARE = [

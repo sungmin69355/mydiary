@@ -7,3 +7,4 @@ class User(models.Model):
     
     def __str__(self):
         return "%s" % (self.nick_name)
+    
