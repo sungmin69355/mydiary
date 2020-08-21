@@ -1,30 +1,30 @@
 {% extends 'menu_bar.html' %}
 {% block contents %}
-<body>
+<body><br><br>
+    <div class="bglogin2" style="max-width: 30rem; float: none; margin: 0 auto;">
+    <br><br><br><br><br><br><br><br><br>
+    </div>
 <div class="container">
         <div class="login_container">
 				    <div class="error_message">
-                {{error}} # 한 번에 제출 후 오류가 있을 경우 error를 가지고 return
-            </div>
-            <div class="login_title">
-                Change Password
+                {{error}} <!-- 한 번에 제출 후 오류가 있을 경우 error를 가지고 return -->
             </div>
             <form method="POST" action="{% url 'change_pw' %}" class="login_form">
                 {% csrf_token %}
-
-                <div class="login_input_container">
+                <div class="card text-white bg-dark mb-3" style="max-width: 30rem; float: none; margin: 0 auto;">
+                 <div class="form-group" align="center">
                     <div class="username_form_text">Origin Password</div>
                     <div class="input_container">
-                        <input class="login_input" name="origin_password" type="password">
+                        <input style="width:300px" class="form-control" name="origin_password" type="password">
                     </div>
 
                     <div class="password_form_text"> New Password</div>
                     <div class="input_container">
-                        <input class="login_input" name="password1" type="password">
+                        <input style="width:300px" class="form-control" name="password1" type="password">
                     </div>
                     <div class="confirm_password_form_text">Confirm Password</div>
                     <div class="input_container">
-                        <input class="login_input" name="password2" type="password">
+                        <input style="width:300px" class="form-control" name="password2" type="password">
                     </div>
                 </div>
                 <div class="login_btn_container">

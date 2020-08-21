@@ -41,9 +41,10 @@ def kakao_login(request):
     )
 ##비밀번호 변경란 수정중....
 
-def change_password_page(request):
+def change_pw(request):
     return render(request, "change_pw.html")
-    
+
+"""
 @login_required
 def change_password(request):
     context= {}
@@ -64,4 +65,4 @@ def change_password(request):
         context.update({'error':"현재 비밀번호가 일치하지 않습니다."})
 
     return render(request, "change_pw.html",context)
-
+"""
