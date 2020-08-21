@@ -1,34 +1,38 @@
 {% extends 'menu_bar.html' %}
 {% block contents %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/accounts.css'%}">
 <body><br><br>
+            
     <div class="bglogin2" style="max-width: 30rem; float: none; margin: 0 auto;">
     <br><br><br><br><br><br><br><br><br>
     </div>
 <div class="container">
         <div class="login_container">
 				    <div class="error_message">
-                {{error}} <!-- 한 번에 제출 후 오류가 있을 경우 error를 가지고 return -->
-            </div>
+                </div>
             <form method="POST" action="{% url 'change_pw' %}" class="login_form">
                 {% csrf_token %}
                 <div class="card text-white bg-dark mb-3" style="max-width: 30rem; float: none; margin: 0 auto;">
-                 <div class="form-group" align="center">
-                    <div class="username_form_text">Origin Password</div>
+                 <div class="form-group" align="center"><br>
+                    <label>기존 비밀번호</label>
                     <div class="input_container">
                         <input style="width:300px" class="form-control" name="origin_password" type="password">
-                    </div>
+                    <small class="form-text text-muted">{{error}}</small> <!-- 한 번에 제출 후 오류가 있을 경우 error를 가지고 return -->
+                    </div><br>
 
-                    <div class="password_form_text"> New Password</div>
+                    <label> 변경할 비밀번호</label>
                     <div class="input_container">
                         <input style="width:300px" class="form-control" name="password1" type="password">
-                    </div>
-                    <div class="confirm_password_form_text">Confirm Password</div>
+                    </div><br>
+
+                    <label>변경할 비밀번호 다시 입력해주세요</label>
                     <div class="input_container">
                         <input style="width:300px" class="form-control" name="password2" type="password">
                     </div>
                 </div>
-                <div class="login_btn_container">
-                    <input type="submit" class="login_btn" value="Submit">
+               <div class="form-group" align="center">
+                    <input class="btn btn-dark" type="Submit" value="저장하기">
                 </div>
         </div>
         </form>

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth #내부 유저모델 사용
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import check_password #비밀번호체크
 
 def signup(request):
     if request.method  == 'POST':
@@ -39,14 +40,10 @@ def kakao_login(request):
     return redirect(
         f"https://kauth.kakao.com/oauth/authorize?client_id={'45f14f583e184b0b0b976cf5ef4b3095'}&redirect_uri={'home'}&response_type=code"
     )
+
 ##비밀번호 변경란 수정중....
-
-def change_pw(request):
-    return render(request, "change_pw.html")
-
-"""
 @login_required
-def change_password(request):
+def change_pw(request):
     context= {}
     if request.method == "POST":
         current_password = request.POST.get("origin_password")
@@ -55,6 +52,7 @@ def change_password(request):
             new_password = request.POST.get("password1")
             password_confirm = request.POST.get("password2")
             if new_password == password_confirm:
+                user.backend = 'Django.contrib.auth.backends.ModelBackend' ##백엔드에게 정보를 넘겨줌 인증받아서 넘겨준다.
                 user.set_password(new_password)
                 user.save()
                 auth.login(request,user)
@@ -65,4 +63,4 @@ def change_password(request):
         context.update({'error':"현재 비밀번호가 일치하지 않습니다."})
 
     return render(request, "change_pw.html",context)
-"""
+
