@@ -12,6 +12,7 @@ def signup(request):
         if request.POST['password1'] == request.POST['password2']:
             user = User.objects.create_user(
                 request.POST['username'], password= request.POST['password1'])
+        user.backend = 'Django.contrib.auth.backends.ModelBackend' ##백엔드에게 정보를 넘겨줌 인증받아서 넘겨준다.
         auth.login(request, user)
         return redirect('home')
     return render(request, 'signup.html')
