@@ -42,7 +42,6 @@ def kakao_login(request):
         f"https://kauth.kakao.com/oauth/authorize?client_id={'45f14f583e184b0b0b976cf5ef4b3095'}&redirect_uri={'home'}&response_type=code"
     )
 
-##비밀번호 변경란 수정중....
 @login_required
 def change_pw(request):
     context= {}
