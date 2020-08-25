@@ -44,7 +44,6 @@ def delete(request, posts_id):
 
 def update(request, posts_id): #여기 수정중..... post값을 가져온뒤 수정해야함... 어떻게?..
     post = Post.objects.get(id=posts_id)
-
     if request.method == "POST":
         post.title = request.POST['title']
         post.content = request.POST['text']
@@ -52,6 +51,5 @@ def update(request, posts_id): #여기 수정중..... post값을 가져온뒤 �
         post.emotion = request.POST['radio_emotion']
         post.save()
         return redirect('/mydiary/update/' + str(post.id))
-    
     else:
-        return render(request, 'write_update_diary.html')
+        return render(request, 'write_diary.html')
